@@ -1,0 +1,124 @@
+@import '../../console.css';
+@import '../../cleanup.css';
+
+.admin-shell .nav-label {
+	color: #0b171b;
+	font-family: Manrope, 'Segoe UI', sans-serif;
+	font-size: 12px;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.admin-shell .account {
+	position: relative;
+	order: 2;
+	margin: 40px 2px 0;
+	padding: 10px;
+	border: 1px solid #101c52;
+	border-radius: 7px;
+	background: #101c52;
+	color: #fff;
+}
+
+.admin-shell nav + .account {
+	margin-top: 40px;
+}
+
+.admin-shell .account>span {
+	background: #fff;
+	color: #101c52;
+}
+
+.admin-shell .account small {
+	color: #c9d3ef;
+}
+
+.admin-shell .collapse-side {
+	display: grid;
+	place-items: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--muted);
+}
+
+.admin-shell .collapse-side svg {
+	width: 18px;
+	height: 18px;
+}
+
+.sidebar-collapsed aside {
+	width: 72px;
+	flex-basis: 72px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.sidebar-collapsed .side-brand {
+	justify-content: center;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.sidebar-collapsed .brand-lockup,
+.sidebar-collapsed .account-details,
+.sidebar-collapsed .nav-label,
+.sidebar-collapsed .nav-text,
+	.sidebar-collapsed nav b {
+	display: none;
+}
+
+.sidebar-collapsed .account {
+	display: none;
+	position: static;
+	justify-content: center;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+.sidebar-collapsed .admin-shell nav button {
+	justify-content: center;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+
+.admin-header .header-theme-toggle {
+	position: static;
+	width: 32px;
+	height: 32px;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	font-size: 18px;
+	display: grid;
+	place-items: center;
+}
+
+.admin-header .notification-button {
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	font-size: 18px;
+	display: grid;
+	place-items: center;
+}
+
+.admin-header .header-theme-toggle svg,
+.admin-header .notification-button svg {
+	width: 18px;
+	height: 18px;
+}
+
+.admin-shell nav svg {
+	width: 17px;
+	height: 17px;
+	flex: 0 0 17px;
+}
+
+@media (max-width: 680px) {
+	.admin-shell .collapse-side {
+		display: none;
+	}
+}

@@ -1,0 +1,10 @@
+@import '../../theme.css';
+
+.brand-panel .eyebrow,
+.secure-note {
+	display: none;
+}
+
+.login-card .primary {
+	width: 100%;
+}
