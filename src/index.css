@@ -1,0 +1,143 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* ARC design tokens — light */
+:root {
+	color-scheme: light;
+	--bg: #f4f7f6;
+	--surface: #ffffff;
+	--surface-2: #f8fbfa;
+	--ink: #172f3a;
+	--muted: #5f757b;
+	--line: #29434d;
+	--divider: #dfe9e7;
+	--accent: #25aaa1;
+	--accent-strong: #177f7b;
+	--soft: #e6f5f2;
+	--success: #1f7a4d;
+	--success-soft: #dcf2e6;
+	--warning: #8a6212;
+	--warning-soft: #faedc9;
+	--danger: #b2432f;
+	--danger-soft: #f7dcd5;
+	--info: #3f738e;
+	--info-soft: #dcecf3;
+}
+
+/* ARC design tokens — dark */
+[data-theme='dark'] {
+	color-scheme: dark;
+	--bg: #0e2028;
+	--surface: #17343c;
+	--surface-2: #1b3c45;
+	--ink: #edf7f5;
+	--muted: #a8bfc1;
+	--line: #2b4c54;
+	--divider: #25454d;
+	--accent: #68d1c7;
+	--accent-strong: #9af0e7;
+	--soft: #20555a;
+	--success: #7ee0a8;
+	--success-soft: #1d4a37;
+	--warning: #f3cf73;
+	--warning-soft: #4a3d17;
+	--danger: #ff9b86;
+	--danger-soft: #5a2a24;
+	--info: #9fd0ea;
+	--info-soft: #20435a;
+}
+
+@theme inline {
+	--color-bg: var(--bg);
+	--color-surface: var(--surface);
+	--color-surface-2: var(--surface-2);
+	--color-ink: var(--ink);
+	--color-muted: var(--muted);
+	--color-line: var(--line);
+	--color-divider: var(--divider);
+	--color-accent: var(--accent);
+	--color-accent-strong: var(--accent-strong);
+	--color-soft: var(--soft);
+	--color-success: var(--success);
+	--color-success-soft: var(--success-soft);
+	--color-warning: var(--warning);
+	--color-warning-soft: var(--warning-soft);
+	--color-danger: var(--danger);
+	--color-danger-soft: var(--danger-soft);
+	--color-info: var(--info);
+	--color-info-soft: var(--info-soft);
+	--color-night: #050b10;
+	--color-cyan: #24c6f5;
+	--color-navy: #101c52;
+	--font-sans: Manrope, 'Segoe UI', system-ui, sans-serif;
+	--font-mono: 'DM Mono', ui-monospace, monospace;
+}
+
+@layer base {
+	body {
+		@apply bg-bg font-sans text-ink antialiased transition-colors;
+	}
+
+	button:not(:disabled),
+	[role='button']:not(:disabled) {
+		cursor: pointer;
+	}
+
+	:focus-visible {
+		@apply outline-2 outline-offset-2 outline-accent;
+	}
+}
+
+@layer components {
+	.card {
+		@apply rounded-lg border border-line bg-surface;
+	}
+
+	.eyebrow {
+		@apply font-mono text-[11px] font-medium tracking-[0.12em] text-accent-strong uppercase;
+	}
+
+	.btn {
+		@apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-xs font-extrabold transition-colors disabled:cursor-not-allowed disabled:opacity-60;
+	}
+
+	.btn-primary {
+		@apply bg-ink text-surface hover:bg-accent hover:text-[#06272c];
+	}
+
+	.btn-secondary {
+		@apply border border-line bg-surface text-ink hover:bg-soft;
+	}
+
+	.input {
+		@apply w-full rounded-md border border-line bg-surface px-3 py-2.5 text-sm text-ink outline-none placeholder:text-muted focus:border-accent focus:ring-3 focus:ring-soft;
+	}
+
+	.th {
+		@apply border-y border-divider px-3 py-2.5 text-left font-mono text-[10px] font-medium tracking-wider text-muted uppercase;
+	}
+
+	.td {
+		@apply border-b border-divider px-3 py-3 text-[13px];
+	}
+}
+
+/* Leaflet map tiles follow the dark theme */
+[data-theme='dark'] .leaflet-tile-pane {
+	filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9);
+}
+
+.leaflet-container {
+	font-family: inherit;
+	background: var(--surface-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}
